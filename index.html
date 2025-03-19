@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A special website dedicated to Nishma, filled with love, memories, and surprises.">
+  <title>For My Girlfreiend 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="heart-icon.png" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+  <style>
+    /* General Styles */
+    :root {
+      --primary-color: #ff6f61;
+      --secondary-color: #fad0c4;
+      --text-color: #3f13ef;
+      --font-primary: 'Poppins', sans-serif;
+      --font-secondary: 'Dancing Script', cursive;
+    }
+
+    body {
+      background: linear-gradient(to bottom, #ff9a9e, var(--secondary-color));
+      color: var(--text-color);
+      text-align: center;
+      font-family: var(--font-primary);
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      cursor: url('heart-cursor.png'), auto;
+    }
+
+    h1 {
+      font-family: var(--font-secondary);
+      font-size: 3rem;
+      animation: fadeIn 2s ease-in;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+
+    button {
+      background: var(--primary-color);
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin: 10px;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #05f144;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh); }
+      100% { transform: translateY(-10vh); }
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Cake Animation */
+    .cake-container {
+      position: relative;
+      margin-top: 20px;
+      animation: bounce 5s infinite;
+    }
+
+    .cake {
+      width: 200px;
+      height: 100px;
+      background: #f4c2c2;
+      border-radius: 10px 10px 0 0;
+      position: relative;
+      margin: 0 auto;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .frosting {
+      width: 100%;
+      height: 20px;
+      background: #fff0f5;
+      position: absolute;
+      top: -10px;
+      border-radius: 50%;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .candle {
+      width: 10px;
+      height: 30px;
+      background: linear-gradient(to bottom, #ffd700, #ffa500);
+      position: absolute;
+      bottom: 100%;
+      animation: flicker 1s infinite;
+      border-radius: 5px 5px 0 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .candle.left { left: 10%; }
+    .candle.center { left: 50%; transform: translateX(-50%); }
+    .candle.right { right: 10%; }
+
+    .candle::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: #ff4500;
+      border-radius: 50%;
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: flicker 0.5s infinite;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 24px;
+      top: -50px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: float 10s infinite;
+    }
+
+    /* Flower Animation */
+    .flower {
+      position: absolute;
+      font-size: 24px;
+      animation: float 6s infinite;
+      bottom: 0;
+      left: 10%;
+    }
+
+    /* Pop-up Styles */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .popup-content {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      color: var(--primary-color);
+      position: relative;
+      width: 90%;
+      max-width: 400px;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      cursor: pointer;
+      font-size: 24px;
+    }
+
+    /* Memory Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      margin: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Media Queries for Mobile Devices */
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+      p { font-size: 1rem; }
+      .cake { width: 100px; height: 70px; }
+      .candle { height: 20px; }
+      .heart, .flower { font-size: 18px; }
+      .gallery { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+      button { padding: 8px 16px; font-size: 0.9rem; }
+    }
+
+    /* Footer */
+    footer {
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Cake with Heart Animation -->
+  <div class="cake-container">
+    <div class="cake">
+      <div class="frosting"></div>
+      <div class="candle left"></div>
+      <div class="candle center"></div>
+      <div class="candle right"></div>
+    </div>
+    <div class="heart">💖</div>
+  </div>
+
+  <!-- Flower Animation -->
+  <div class="flower">🌸</div>
+
+  <!-- Welcome Message -->
+  <h1>Welcome,Kanxi💖</h1>
+  <p>This website is for you My Girl, nishuu.</p>
+
+  <!-- Buttons for Interaction -->
+  <button onclick="showPopup(1)" aria-label="Show Special Message">Click for a Message!</button>
+  <button onclick="triggerConfetti()" aria-label="Trigger Confetti">Click for Boomm! 🎉</button>
+
+  <!-- Pop-up Messages -->
+  <div id="popup1" class="popup">
+    <div class="popup-content">
+      <span onclick="closePopup(1)" class="close">&times;</span>
+      <p>You are the most beautiful person in my life. 💖</p>
+    </div>
+  </div>
+
+  <!-- Memory Gallery -->
+  <div class="gallery">
+    <a href="dood.jpg" data-lightbox="gallery" data-title="Memory 1"><img src="dood.jpg" alt="Memory 1"></a>
+    <a href="video.mp4" data-lightbox="gallery" data-title="Video click here 2"><img src="video.mp4" alt="video 1"></a>
+    <a href="So.jpg" data-lightbox="gallery" data-title="Memory 3"><img src="So.jpg" alt="Memory 3"></a>
+    <a href="nishma.mp4" data-lightbox="gallery" data-title="Video click here 4"><img src="nishma.mp4" alt="video 2"></a>
+  </div>
+
+  <!-- Love Quiz -->
+  <div id="quiz">
+    <h2>Happy birthday Nishuu medam jiii ?</h2>
+    <p>Smile  Do you remember our first Kiss🤭🐰🐇 ?</p>
+    <button onclick="checkAnswer('correct')">Are you Free this saturday </button>
+    <button onclick="checkAnswer('wrong')">Watching a movie at home</button>
+    <p id="quizResult"></p>
+  </div>
+
+  <!-- Virtual Gift -->
+  <div id="gift">
+    <button onclick="unwrapGift()">Click to Unwrap Your Gift! 🎁</button>
+    <p id="giftMessage" style="display: none;">Do you know of any good places we can go?💖</p>
+  </div>
+
+  <!-- Romantic Quote Generator -->
+  <div id="quote">
+    <button onclick="generateQuote()">Click for a Romantic Quote 💌</button>
+    <p id="quoteText"></p>
+  </div>
+
+  <!-- Secret Message -->
+  <p>Once again Happy Birthday to you, Nishu. Many many happy returns of the day. I am always with you like your shadow. You need any help? Remember me; I am always with you. 💖</p>
+  <p id="secretMessage" style="display: none;">I will always love you. 💌</p>
+
+  <!-- Background Music -->
+  <audio id="backgroundMusic" autoplay loop>
+    <source src="aayoj.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <button onclick="toggleMusic()" aria-label="Toggle Music">Play/Pause Music 🎵</button>
+
+  <!-- Footer -->
+  <footer>
+    <p> Girlfriend lai namaskar </p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <script>
+    // Pop-up Functions
+    function showPopup(popupNumber) {
+      document.getElementById(`popup${popupNumber}`).style.display = "flex";
+    }
+
+    function closePopup(popupNumber) {
+      document.getElementById(`popup${popupNumber}`).style.display = "none";
+    }
+
+    // Confetti Animation
+    function triggerConfetti() {
+      if (typeof confetti === "function") {
+        confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 }
+        });
+      } else {
+        console.error("Confetti library not loaded!");
+      }
+    }
+
+    // Love Quiz
+    function checkAnswer(answer) {
+      const result = document.getElementById("quizResult");
+      result.innerHTML = answer === 'correct' ? "OfCourse Darling. 💖" : "Oops! Ejat lutnai hola. 🌸";
+    }
+
+    // Virtual Gift
+    function unwrapGift() {
+      document.getElementById("giftMessage").style.display = "block";
+    }
+
+    // Romantic Quote Generator
+    const quotes = [
+      "You are my today and all of my tomorrows. 💖",
+      "I love you more than coffee, and that’s saying a lot. ☕💕",
+      "You are my sunshine on the darkest days. ☀️",
+      "Every moment with you is a moment I treasure. 🌸",
+      "Aabo tw aayai nah hai🌙💫"
+    ];
+
+    function generateQuote() {
+      const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+      document.getElementById("quoteText").innerHTML = randomQuote;
+    }
+
+    // Music Control
+    function toggleMusic() {
+      const music = document.getElementById("backgroundMusic");
+      if (music.paused) {
+        music.play();
+      } else {
+        music.pause();
+      }
+    }
+
+    // Timed Pop-ups
+    setTimeout(() => showPopup(2), 5000);
+    setTimeout(() => showPopup(3), 10000);
+    setTimeout(() => showPopup(4), 15000);
+    setTimeout(() => showPopup(5), 20000);
+  </script>
+</body>
+</html>
